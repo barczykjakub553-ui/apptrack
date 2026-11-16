@@ -1,0 +1,42 @@
+export const mockApplications = [
+    {
+        id: 1,
+        company: 'Pixel Labs',
+        position: 'Junior Frontend Developer',
+        status: 'interview',
+        appliedAt: '2026-11-03',
+        link: 'https://example.com/oferta-1',
+    },
+    {
+        id: 2,
+        company: 'CloudNest',
+        position: 'Junior React Developer',
+        status: 'applied',
+        appliedAt: '2026-11-08',
+        link: 'https://example.com/oferta-2',
+    },
+    {
+        id: 3,
+        company: 'Datavio',
+        position: 'Frontend Intern',
+        status: 'rejected',
+        appliedAt: '2026-10-21',
+        link: '',
+    },
+    {
+        id: 4,
+        company: 'Brightcode',
+        position: 'Junior Web Developer',
+        status: 'offer',
+        appliedAt: '2026-10-15',
+        link: 'https://example.com/oferta-4',
+    },
+    {
+        id: 5,
+        company: 'Northwave',
+        position: 'Junior Fullstack Developer',
+        status: 'applied',
+        appliedAt: '2026-11-12',
+        link: 'https://example.com/oferta-5',
+    },
+]

@@ -1,27 +1,32 @@
-import { useState } from 'react'
+import ApplicationList from './components/ApplicationList'
+import { mockApplications} from "./data/mockApplication.js";
 import './App.css'
 
-function Button({count, onIncrement}) {
-  return <button
-      type="button"
-      className="counter"
-      onClick={onIncrement}>
-        <p>{count === 0 ? "Nothing was sent!" : `Applications sent: ${count}`}</p>
-    </button>
-}
-
 function App() {
-  const [count, setCount] = useState(0)
+    const applications = mockApplications;
 
-  return (
-    <>
-      <section id="center">
-        <div className="centerC">
-          <Button count={count} onIncrement={() => setCount(c => c + 1)} />
-        </div>
-      </section>
-    </>
-  )
+    const totalCount = applications.length;
+    const interviewCount = applications.filter(
+        (application) => application.status === 'interview',
+    ).length;
+    const offerCount = applications.filter(
+        (application) => application.status === 'offer',
+    ).length;
+
+    return (
+        <main>
+            <header>
+                <h1>AppTrack</h1>
+                <p>All applications in one-place.</p>
+            </header>
+
+            <p>
+                All: {totalCount} - Interview: {interviewCount} - Offer: {offerCount}
+            </p>
+
+            <ApplicationList applications={applications} />
+        </main>
+    )
 }
 
-export default App
+export default App;
