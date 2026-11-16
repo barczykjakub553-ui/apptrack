@@ -7,9 +7,15 @@ import ApplicationForm from "./components/ApplicationForm.jsx";
 function App() {
     const [applications, setApplications] = useState(mockApplications);
 
+    //dodawanie funkcji poprez manipulowanie prev
     function handleAddApplication(newApplication) {
         const applicationWithId = { ...newApplication, id: crypto.randomUUID()}
         setApplications((prev) => [applicationWithId, ...prev])
+    }
+
+    //usuwanie application poprzez manipulowanie prev
+    function handleDeleteApplication(id) {
+        setApplications((prev) => prev.filter((application) => application.id !== id))
     }
 
     const totalCount = applications.length;
@@ -31,7 +37,7 @@ function App() {
                 All: {totalCount} - Interview: {interviewCount} - Offer: {offerCount}
             </p>
             <ApplicationForm onAdd={handleAddApplication} />
-            <ApplicationList applications={applications} />
+            <ApplicationList applications={applications} onDelete={handleDeleteApplication} />
         </main>
     )
 }

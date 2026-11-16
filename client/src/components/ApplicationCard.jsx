@@ -4,8 +4,8 @@ function formatDate(isoDate) {
     return new Date(isoDate).toLocaleDateString('pl-PL')
 }
 
-function ApplicationCard({ application }) {
-    const { company, position, status, appliedAt, link } = application
+function ApplicationCard({ application, onDelete }) {
+    const { id, company, position, status, appliedAt, link } = application
 
     //web app principles - article, (dostepnosc i wyszukiwarki rozumieja strukture ekranu)
     return (
@@ -21,6 +21,9 @@ function ApplicationCard({ application }) {
                     View job offer
                 </a>
             )}
+            <button type="button" onClick = {() => onDelete(id)}>
+                Delete
+            </button>
         </article>
     )
 }

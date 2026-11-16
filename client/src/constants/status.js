@@ -1,8 +1,8 @@
 export const STATUS_LABELS = {
-    applied: 'applied',
-    interview: 'interview',
-    offer: 'offer',
-    rejected: 'rejected',
+    applied: 'Applied',
+    interview: 'Interview',
+    offer: 'Offer',
+    rejected: 'Rejected',
 }
 
 //export sprawia ze stala jest dostepna w innych plikach

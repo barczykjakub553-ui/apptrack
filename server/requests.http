@@ -1,0 +1,40 @@
+### Health check
+GET http://localhost:3001/api/health
+
+### Get all applications
+GET http://localhost:3001/api/applications
+
+### Get one application
+GET http://localhost:3001/api/applications/1
+
+### Get non-existing application (expect 404)
+GET http://localhost:3001/api/applications/999
+
+### Create application (expect 201)
+POST http://localhost:3001/api/applications
+Content-Type: application/json
+
+{
+  "company": "Test Company",
+  "position": "Junior Developer",
+  "status": "applied"
+}
+
+### Create invalid application (expect 400)
+POST http://localhost:3001/api/applications
+Content-Type: application/json
+
+{
+  "company": "",
+  "status": "hired"
+}
+###
+PATCH http://localhost:3001/api/applications/999
+Content-Type: application/json
+
+{
+  "status": "offer"
+}
+
+### Delete application (expect 204)
+DELETE http://localhost:3001/api/applications/2

@@ -1,6 +1,6 @@
 import ApplicationCard from './ApplicationCard.jsx'
 
-function ApplicationList({ applications }) {
+function ApplicationList({ applications, onDelete }) {
     if (applications.length === 0) {
         return <p>No applications. Add some first.</p>
     }
@@ -9,7 +9,7 @@ function ApplicationList({ applications }) {
         <ul className="application-list">
             {applications.map((application) => (
                 <li key={application.id}>
-                    <ApplicationCard application={application} />
+                    <ApplicationCard application={application} onDelete={onDelete} />
                 </li>
             ))}
         </ul>
