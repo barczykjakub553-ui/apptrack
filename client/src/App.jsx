@@ -1,9 +1,16 @@
 import ApplicationList from './components/ApplicationList'
 import { mockApplications} from "./data/mockApplication.js";
 import './App.css'
+import {useState} from "react";
+import ApplicationForm from "./components/ApplicationForm.jsx";
 
 function App() {
-    const applications = mockApplications;
+    const [applications, setApplications] = useState(mockApplications);
+
+    function handleAddApplication(newApplication) {
+        const applicationWithId = { ...newApplication, id: crypto.randomUUID()}
+        setApplications((prev) => [applicationWithId, ...prev])
+    }
 
     const totalCount = applications.length;
     const interviewCount = applications.filter(
@@ -23,7 +30,7 @@ function App() {
             <p>
                 All: {totalCount} - Interview: {interviewCount} - Offer: {offerCount}
             </p>
-
+            <ApplicationForm onAdd={handleAddApplication} />
             <ApplicationList applications={applications} />
         </main>
     )

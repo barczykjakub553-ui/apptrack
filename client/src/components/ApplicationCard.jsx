@@ -5,7 +5,7 @@ function formatDate(isoDate) {
 }
 
 function ApplicationCard({ application }) {
-    const { company, position, status, appliedAt } = application
+    const { company, position, status, appliedAt, link } = application
 
     //web app principles - article, (dostepnosc i wyszukiwarki rozumieja strukture ekranu)
     return (
@@ -16,6 +16,11 @@ function ApplicationCard({ application }) {
                 Status: {STATUS_LABELS[status]}
             </p>
             <p>Application Date: {formatDate(appliedAt)}</p>
+            {link && (
+                <a href={link} target="_blank" rel="noopener noreferrer">
+                    View job offer
+                </a>
+            )}
         </article>
     )
 }
